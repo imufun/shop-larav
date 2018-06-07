@@ -24,6 +24,15 @@ Route::get('/dashboard', 'AdminController@admin_dashboard');
 Route::post('/admin-dashboard', 'AdminController@dashboard');
 Route::get('/logout', 'SuperAdminController@logout');
 
+Route::get(['get', 'post'], 'admin','AdminController@index');
+
+
+
+
+
+
+
+
 /*--- Category-----*/
 Route::get('/add-category', 'CategoryController@index');
 

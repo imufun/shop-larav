@@ -29,8 +29,8 @@ class AdminController extends Controller
         $admin_email = $request->email;
         $admin_password = md5($request->password);
         $result = DB::table('tbl_admin')
-            ->where('admin_email', $admin_email)
-            ->where('admin_password', $admin_password)
+            ->where('email', $admin_email)
+            ->where('password', $admin_password)
             ->first();
 //        if ($admin_email == '' && $admin_password == ''){
 //            Session::put('error_message', 'Email or Password Field Can not blank ');
@@ -38,7 +38,7 @@ class AdminController extends Controller
 //        }
 
         if (!empty($result)) {
-            Session::put('admin_name', $result->admin_username);
+            Session::put('name', $result->admin_username);
             Session::put('admin_id', $result->admin_id);
             return Redirect::to('/dashboard');
         } else {

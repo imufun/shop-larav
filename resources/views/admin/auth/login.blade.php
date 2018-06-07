@@ -50,7 +50,7 @@
                             ?>
                         </div>
 
-                        <form action="{{url('/admin')}}" method="post">
+                        <form action="{{url('admin')}}" method="post">
                             {{csrf_field()}}
                             <div class="form-group">
                                 <label class="label">Email</label>

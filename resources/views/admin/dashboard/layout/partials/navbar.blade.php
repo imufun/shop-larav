@@ -17,7 +17,7 @@
         <!-- ============================================================== -->
         <!-- Logo -->
         <!-- ============================================================== -->
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="/admin/dashboard">
             <!-- Logo icon -->
             <b class="logo-icon p-l-10">
                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -171,7 +171,7 @@
                     <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
                     <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i> Inbox</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="javascript:void(0)"><i class="ti-settings m-r-5 m-l-5"></i> Account Setting</a>
+                    <a class="dropdown-item" href="/admin/settings"><i class="ti-settings m-r-5 m-l-5"></i> Account Setting</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/logout"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
                     <div class="dropdown-divider"></div>

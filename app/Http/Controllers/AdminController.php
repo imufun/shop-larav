@@ -23,7 +23,7 @@ class AdminController extends Controller
                 'password' => $data['password'],
                 'admin' => '1'])
             ) {
-               // Session::put('adminSession', $data['email']);
+                // Session::put('adminSession', $data['email']);
                 return Redirect::to('/admin/dashboard');
             } else {
                 return Redirect::to('/admin-login')->with('flash_message_error', 'Invalid Username or Password');
@@ -46,10 +46,13 @@ class AdminController extends Controller
 
     public function logout()
     {
-//        Session::put('admin_name', null);
-//        Session::put('admin_id', null);
         Session::flush();
         return Redirect::to('/admin-login')->with('flash_message_logout', 'Logout Successfully');
+    }
+
+    public function settings()
+    {
+        return view('admin.dashboard.layout.partials.settings');
     }
 
 }

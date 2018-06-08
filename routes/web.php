@@ -29,7 +29,9 @@ Route::get('/logout', 'AdminController@logout');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('admin/dashboard', 'AdminController@admin_dashboard');
+    Route::get('admin/settings', 'AdminController@settings');
 });
+
 
 
 /*--- Category-----*/

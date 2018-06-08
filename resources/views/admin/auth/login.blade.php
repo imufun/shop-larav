@@ -53,7 +53,7 @@
 
                         @if(Session::has('flash_message_error'))
 
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <div class="alert alert-danger alert-dismissible fade show messageTimeout" role="alert">
                                 {!! session('flash_message_error') !!}
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
@@ -105,8 +105,8 @@
                                 <a href="#" class="text-small forgot-password text-black">Forgot Password</a>
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-block g-login">
-                                    <input type="submit" value="login">
+                                <button class="btn btn-block g-login btn btn-success" id="btn-sumit" type="submit">
+                                    Login
                                 </button>
                             </div>
 
@@ -119,9 +119,7 @@
     </div>
     <!-- page-body-wrapper ends -->
 </div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
@@ -140,6 +138,15 @@
 {{--<script src="{{asset('')}}../../js/settings.js"></script>--}}
 {{--<script src="{{asset('')}}../../js/todolist.js"></script>--}}
 <!-- endinject -->
+
+<script>
+    $(document).ready(function () {
+        $(".alert").delay(4000).slideUp(200, function() {
+            $(this).alert('close');
+        });
+    })
+
+</script>
 </body>
 
 </html>

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Session;
 use Auth;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Session;
 
 session_start();
 
@@ -19,8 +18,13 @@ class AdminController extends Controller
     {
         if ($request->isMethod('post')) {
             $data = $request->input();
-            if (Auth::attempt(['email' => $data['email'], 'password' => $data['password'], 'admin' => '1'])) {
-                return Redirect::to('/admin/dashboard')->with('flash_message_success', 'You are successfully logged in');
+            if (Auth::attempt([
+                'email' => $data['email'],
+                'password' => $data['password'],
+                'admin' => '1'])
+            ) {
+               // Session::put('adminSession', $data['email']);
+                return Redirect::to('/admin/dashboard');
             } else {
                 return Redirect::to('/admin-login')->with('flash_message_error', 'Invalid Username or Password');
             }
@@ -31,6 +35,11 @@ class AdminController extends Controller
 
     public function admin_dashboard()
     {
+//        if (Session::has('adminSession')) {
+//
+//        } else {
+//            return Redirect::to('/admin-login')->with('flash_message_success', 'Please login to access');
+//        }
 
         return view('admin.dashboard.master');
     }

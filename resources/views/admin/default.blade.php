@@ -39,7 +39,7 @@
 <!--Menu sidebar -->
 <script src=" {{asset('admin/dist/js/sidebarmenu.js')}}"></script>
 <!--Custom JavaScript -->
-<script src="{{asset(' admin/dist/js/custom.min.js')}}"></script>
+<script src="{{asset('admin/dist/js/custom.js')}}"></script>
 <!--This page JavaScript -->
 <!-- <script src=" admin/dist/js/pages/dashboards/dashboard1.js"></script> -->
 <!-- Charts js Files -->

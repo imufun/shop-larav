@@ -12,7 +12,6 @@
 */
 
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Admin BACKENDS
@@ -23,27 +22,18 @@
 //Route::post('/admin-dashboard', 'AdminController@dashboard');
 //Route::get('/logout', 'SuperAdminController@logout');
 
-Route::match(['get','post'], '/admin-login','AdminController@login');
-Route::get('admin/dashboard', 'AdminController@admin_dashboard');
+Route::match(['get', 'post'], '/admin-login', 'AdminController@login');
+
 Route::get('/logout', 'AdminController@logout');
 
 
-
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('admin/dashboard', 'AdminController@admin_dashboard');
+});
 
 
 /*--- Category-----*/
 //Route::get('/add-category', 'CategoryController@index');
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*
@@ -52,7 +42,6 @@ Route::get('/logout', 'AdminController@logout');
 |--------------------------------------------------------------------------
 |
 */
-
 
 
 Route::get('/', function () {

@@ -18,8 +18,8 @@ class CreateTblUserTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('password');
-            $table->string('admin');
             $table->rememberToken();
+            $table->string('admin');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateTblUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_user');
+        Schema::dropIfExists('users');
     }
 }

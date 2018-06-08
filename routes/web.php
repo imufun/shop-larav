@@ -19,22 +19,19 @@
 |--------------------------------------------------------------------------
 |
 */
-Route::get('/admin-login','AdminController@index');
-Route::get('/dashboard', 'AdminController@admin_dashboard');
-Route::post('/admin-dashboard', 'AdminController@dashboard');
-Route::get('/logout', 'SuperAdminController@logout');
+//Route::get('/admin-login','AdminController@index');
+//Route::post('/admin-dashboard', 'AdminController@dashboard');
+//Route::get('/logout', 'SuperAdminController@logout');
 
-Route::get(['get', 'post'], 'admin','AdminController@index');
-
-
-
+Route::match(['get','post'], '/admin-login','AdminController@login');
+Route::get('admin/dashboard', 'AdminController@admin_dashboard');
 
 
 
 
 
 /*--- Category-----*/
-Route::get('/add-category', 'CategoryController@index');
+//Route::get('/add-category', 'CategoryController@index');
 
 
 

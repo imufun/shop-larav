@@ -1,3 +1,15 @@
+@if(Session::has('flash_message_success'))
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {!! session('flash_message_success') !!}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
+
+
+
 <nav class="navbar top-navbar navbar-expand-md navbar-dark">
     <div class="navbar-header" data-logobg="skin5">
         <!-- This is for the sidebar toggle which is visible on mobile only -->
@@ -161,7 +173,7 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="javascript:void(0)"><i class="ti-settings m-r-5 m-l-5"></i> Account Setting</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                    <a class="dropdown-item" href="/logout"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
                     <div class="dropdown-divider"></div>
                     <div class="p-l-30 p-10"><a href="javascript:void(0)" class="btn btn-sm btn-success btn-rounded">View Profile</a></div>
                 </div>

@@ -61,6 +61,15 @@
                             </div>
                         @endif
 
+                        @if(Session::has('flash_message_logout'))
+
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {!! session('flash_message_logout') !!}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        @endif
 
                         <form action="{{url('admin-login')}}" method="post">
                             {{csrf_field()}}

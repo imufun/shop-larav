@@ -31,6 +31,7 @@
 <!-- Bootstrap tether Core JavaScript -->
 <script src=" {{asset('admin/assets/libs/popper.js/dist/umd/popper.min.js')}}"></script>
 <script src=" {{asset('admin/assets/libs/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 <script src=" {{asset('admin/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js')}}"></script>
 <script src=" {{asset('admin/assets/extra-libs/sparkline/sparkline.js')}}"></script>
 <!--Wave Effects -->

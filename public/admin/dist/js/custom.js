@@ -2,10 +2,10 @@ $(function () {
     "use strict";
 
     $(".preloader").fadeOut();
-    // ============================================================== 
+    // ==============================================================
     // Theme options
-    // ==============================================================     
-    // ============================================================== 
+    // ==============================================================
+    // ==============================================================
     // sidebar-hover
     // ==============================================================
 
@@ -32,7 +32,7 @@ $(function () {
         $(".app-search input").focus();
     });
 
-    // ============================================================== 
+    // ==============================================================
     // Right sidebar options
     // ==============================================================
     $(function () {
@@ -44,29 +44,29 @@ $(function () {
             $(".customizer").removeClass('show-service-panel');
         });
     });
-    // ============================================================== 
+    // ==============================================================
     // This is for the floating labels
-    // ============================================================== 
+    // ==============================================================
     $('.floating-labels .form-control').on('focus blur', function (e) {
         $(this).parents('.form-group').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));
     }).trigger('blur');
 
-    // ============================================================== 
+    // ==============================================================
     //tooltip
-    // ============================================================== 
+    // ==============================================================
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     })
-    // ============================================================== 
+    // ==============================================================
     //Popover
-    // ============================================================== 
+    // ==============================================================
     $(function () {
         $('[data-toggle="popover"]').popover()
     })
 
-    // ============================================================== 
+    // ==============================================================
     // Perfact scrollbar
-    // ============================================================== 
+    // ==============================================================
     $('.message-center, .customizer-body, .scrollable').perfectScrollbar({
         wheelPropagation: !0
     });
@@ -76,21 +76,21 @@ $(function () {
     var ps = new PerfectScrollbar('.scroll-sidebar');
     var ps = new PerfectScrollbar('.customizer-body');*/
 
-    // ============================================================== 
+    // ==============================================================
     // Resize all elements
-    // ============================================================== 
+    // ==============================================================
     $("body, .page-wrapper").trigger("resize");
     $(".page-wrapper").delay(20).show();
-    // ============================================================== 
+    // ==============================================================
     // To do list
-    // ============================================================== 
+    // ==============================================================
     $(".list-task li label").click(function () {
         $(this).toggleClass("task-done");
     });
 
     //****************************
     /* This is for the mini-sidebar if width is less then 1170*/
-    //**************************** 
+    //****************************
     var setsidebartype = function () {
         var width = (window.innerWidth > 0) ? window.innerWidth : this.screen.width;
         if (width < 1170) {
@@ -119,5 +119,41 @@ $(function () {
             $(this).alert('close');
         });
     });
-});
 
+
+    //this is check live passwrod
+
+
+    $(function () {
+
+        $('#currentPassword').on('keyup', function () {
+            var currentPassword = $("#currentPassword").val();
+            $.ajax({
+                type: 'get',
+                url: '/admin/check-password',
+                data: {current_password: currentPassword},
+                success: function (response) {
+                    // alert(response);
+                    if (response == 'false') {
+                        $('#checkPassword').text('Current Password is Incorrect').addClass('alert-danger mt-2 d-block p-1');
+                    } else if (response == 'true') {
+                        $('#checkPassword').text('Current Password is Correct').addClass('alert-success mt-2 d-block p-1');
+                        $('#checkPassword').removeClass('alert-danger');
+
+                    }
+                   // console.log(response);
+
+                },
+                error: function (response) {
+                    alert(response);
+                }
+            });
+        });
+
+
+        //  console.log('---', currentPassword);
+
+    });
+
+
+});

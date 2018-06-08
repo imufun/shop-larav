@@ -141,7 +141,7 @@ $(function () {
                         $('#checkPassword').removeClass('alert-danger');
 
                     }
-                   // console.log(response);
+                    // console.log(response);
 
                 },
                 error: function (response) {
@@ -149,9 +149,26 @@ $(function () {
                 }
             });
         });
+    });
+
+    $(function () {
+
+        $('#submitPassword').submit(function (e) {
+            e.preventDefault();
+            alert('hahhahaha');
 
 
-        //  console.log('---', currentPassword);
+            var newPassword = $("#newPassword").val();
+            var confirmPassword = $("#confirmPassword").val();
+
+            console.log(newPassword, confirmPassword);
+            if (newPassword != confirmPassword) {
+                alert('Password not match');
+                console.log(newPassword, confirmPassword);
+            }else{
+                confirmPassword.text('');
+            }
+        })
 
     });
 

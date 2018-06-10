@@ -5,7 +5,7 @@
     <div class="page-wrapper">
         <div class="col-md-12">
             <div class="row card">
-                @include('admin.common.flush-message');
+                @include('admin.common.flush-message')
                 <form class="form-horizontal" action="{{url('/admin/update-password')}}" method="post">
                 {{csrf_field()}}
                     <div class="col-6">

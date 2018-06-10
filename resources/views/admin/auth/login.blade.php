@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Admin Login</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../vendors/iconfonts/puse-icons-feather/feather.css">
     <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="../../vendors/css/vendor.bundle.addons.css">
@@ -28,30 +27,8 @@
             <div class="row w-100">
                 <div class="col-lg-4 mx-auto">
                     <div class="auto-form-wrapper">
-                        <div class="alert-danger">
-                            <?php
-                            //                            $message = Session::get('message');
-                            //                            if ($message) {
-                            //                                echo $message;
-                            //                                Session::put('message', null);
-                            //                            }
-                            //                            ?>
-                        </div>
 
-                        <div>
-
-                            <!--                            --><?php
-                            //
-                            //                            $error_message = Session::get('error_message');
-                            //                            if ($error_message) {
-                            //                                echo $error_message;
-                            //                                Session::put('error_message', null);
-                            //                            }
-                            //
-                            //                            ?>
-                        </div>
-
-                       @include('admin.common.flush-message');
+                       @include('admin.common.flush-message')
 
                         <form action="{{url('admin-login')}}" method="post">
                             {{csrf_field()}}
@@ -102,24 +79,8 @@
     <!-- page-body-wrapper ends -->
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-        crossorigin="anonymous"></script>
-<!-- container-scroller -->
-<!-- plugins:js -->
-{{--<script src="{{asset('admin/assets/vendors/js/vendor.bundle.base.js')}}"></script>--}}
-{{--<script src="{{asset('admin/assets/vendors/js/vendor.bundle.addons.js')}}"></script>--}}
-{{--<!-- endinject -->../../--}}
-{{--<!-- inject:js -->--}}
-{{--<script src="{{asset('')}}../../js/off-canvas.js"></script>--}}
-{{--<script src="{{asset('')}}../../js/hoverable-collapse.js"></script>--}}
-{{--<script src="{{asset('')}}../../js/misc.js"></script>--}}
-{{--<script src="{{asset('')}}../../js/settings.js"></script>--}}
-{{--<script src="{{asset('')}}../../js/todolist.js"></script>--}}
-<!-- endinject -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" ></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" ></script>
 
 <script>
     $(document).ready(function () {

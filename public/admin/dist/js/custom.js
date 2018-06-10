@@ -151,26 +151,26 @@ $(function () {
         });
     });
 
-    $(function () {
-
-        $('#submitPassword').submit(function (e) {
-            e.preventDefault();
-            alert('hahhahaha');
-
-
-            var newPassword = $("#newPassword").val();
-            var confirmPassword = $("#confirmPassword").val();
-
-            console.log(newPassword, confirmPassword);
-            if (newPassword != confirmPassword) {
-                alert('Password not match');
-                console.log(newPassword, confirmPassword);
-            }else{
-                confirmPassword.text('');
-            }
-        })
-
-    });
+    // $(function () {
+    //
+    //     $('#submitPassword').submit(function (e) {
+    //         e.preventDefault();
+    //         alert('hahhahaha');
+    //
+    //
+    //         var newPassword = $("#newPassword").val();
+    //         var confirmPassword = $("#confirmPassword").val();
+    //
+    //         console.log(newPassword, confirmPassword);
+    //         if (newPassword != confirmPassword) {
+    //             alert('Password not match');
+    //             console.log(newPassword, confirmPassword);
+    //         }else{
+    //             confirmPassword.text('');
+    //         }
+    //     })
+    //
+    // });
 
 
 });

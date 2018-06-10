@@ -20,6 +20,7 @@ class AdminController extends Controller
     {
         if ($request->isMethod('post')) {
             $data = $request->input();
+          //  print_r($data);die();
             if (Auth::attempt([
                 'email' => $data['email'],
                 'password' => $data['password'],
@@ -37,12 +38,6 @@ class AdminController extends Controller
 
     public function admin_dashboard()
     {
-//        if (Session::has('adminSession')) {
-//
-//        } else {
-//            return Redirect::to('/admin-login')->with('flash_message_success', 'Please login to access');
-//        }
-
         return view('admin.dashboard.master');
     }
 
@@ -63,9 +58,9 @@ class AdminController extends Controller
         $current_password = $data['current_password'];
         $check_password = User::where(['admin' => '1'])->first();
         if (Hash::check($current_password, $check_password->password)) {
-            echo "true";
+            echo "true";die();
         } else {
-            echo "false";
+            echo "false";die();
         }
     }
 
@@ -75,17 +70,40 @@ class AdminController extends Controller
             $data = $request->all();
             $check_password = User::where(['email' => Auth::user()->email])->first();
             $current_password = $data['current_password'];
-            if (Hash::check($current_password,$check_password->password)) {
+            if (Hash::check($current_password, $check_password->password)) {
                 $password = bcrypt($data['new_password']);
                 User::where('id', '1')->update(['password' => $password]);
                 return redirect('/admin/settings')->with('flash_message_success', 'Password update successfully');
             } else {
                 return redirect('/admin/settings')->with('flash_message_error', 'Incorrect current password');
             }
-
-//        echo "<pre>";
-//        print_r($data);
         }
     }
+
+
+    // old login seystem
+//    public function dashboard(Request $request)
+//    {
+//        $admin_email = $request->email;
+//        $admin_password = md5($request->password);
+//        $result = DB::table('tbl_admin')
+//            ->where('admin_email', $admin_email)
+//            ->where('admin_password', $admin_password)
+//            ->first();
+////        if ($admin_email == '' && $admin_password == ''){
+////            Session::put('error_message', 'Email or Password Field Can not blank ');
+////            return Redirect::to('/admin-login');
+////        }
+//
+//        if (!empty($result)) {
+//            Session::put('admin_name', $result->admin_username);
+//            Session::put('admin_id', $result->admin_id);
+//            return Redirect::to('/dashboard');
+//        } else {
+//            Session::put('message', 'Email or Password Invalid');
+//            return Redirect::to('/admin-login');
+//        }
+//    }
+
 
 }

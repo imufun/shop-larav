@@ -36,7 +36,7 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 
-/*--- Category-----*/
+/*--- Categories-----*/
 //Route::get('/add-category', 'CategoryController@index');
 
 

@@ -37,4 +37,12 @@ class CategoryController extends Controller
         //print_r($categories);die;
         return view('admin.dashboard.category.manage-category.init')->with(compact('categories'));
     }
+
+
+    public function categoryEdit()
+    {   
+        # code...
+
+        
+    }
 }

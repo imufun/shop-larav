@@ -71,9 +71,9 @@
                                                     <td>{{ $category->category_slug }}</td>
                                                     <td>{{ $category->category_status }}</td>
                                                     <td>
-                                                        <button class="btn btn-success btn-xs">Active</button>
-                                                        <button class="btn btn-dark btn-xs">EDIT</button>
-                                                        <button class="btn btn-danger btn-xs">Delete</button>
+                                                        <a href="" class="btn btn-success btn-xs">Active</a>
+                                                        <a href="{{url('admin/edit-category/'. $category->id )}}" class="btn btn-dark btn-xs">EDIT</a>
+                                                        <a href="" class="btn btn-danger btn-xs">Delete</a>
                                                     </td>
                                                 </tr>
                                             @endforeach

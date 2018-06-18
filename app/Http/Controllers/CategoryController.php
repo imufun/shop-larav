@@ -25,7 +25,9 @@ class CategoryController extends Controller
             $category->save();
         }
 
-        return view('admin.dashboard.category.init');
+        $lavel =  Categories::where(['parent_id'=>1])->get();
+
+        return view('admin.dashboard.category.init')->with(compact('lavel'));
     }
 
     // CATEGORY: view category

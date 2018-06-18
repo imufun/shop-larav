@@ -10,6 +10,8 @@
     <link href="{{asset('admin/assets/libs/flot/css/float-chart.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="{{asset('admin/dist/css/style.min.css')}}" rel="stylesheet">
+    <link href="{{asset('admin/dist/css/select2.css')}}" rel="stylesheet"> 
+    
 </head>
 
 <body>
@@ -44,6 +46,8 @@
 <!-- <script src=" admin/dist/js/pages/dashboards/dashboard1.js"></script> -->
 <!-- Charts js Files -->
 <script src=" {{asset('admin/assets/libs/flot/excanvas.js')}}"></script>
+<script src=" {{asset('admin/assets/libs/select2/dist/js/select2.js')}}"></script>
+
 <script src=" {{asset('admin/assets/libs/flot/jquery.flot.js')}}"></script>
 <script src=" {{asset('admin/assets/libs/flot/jquery.flot.pie.js')}}"></script>
 <script src=" {{asset('admin/assets/libs/flot/jquery.flot.time.js')}}"></script>

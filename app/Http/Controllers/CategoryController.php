@@ -56,4 +56,13 @@ class CategoryController extends Controller
         $categoriesEditId = Categories::where(['id'=>$id])->first();
         return view ('admin.dashboard.category.edit-category')->with(compact('categoriesEditId'));
     }
+
+
+    public function categoryIdDelete($id = null)
+    {
+        if(!empty($id)){
+            Categories::where(['id'=>$id])->delete();
+            return redirect()->back()->with('flash_message_success', 'Category delete successfully');
+        }
+    }
 }

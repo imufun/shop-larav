@@ -73,7 +73,7 @@
                                                     <td>
                                                         <a href="" class="btn btn-success btn-xs">Active</a>
                                                         <a href="{{url('admin/edit-category/'. $category->id )}}" class="btn btn-dark btn-xs">EDIT</a>
-                                                        <a href="" class="btn btn-danger btn-xs">Delete</a>
+                                                        <a href="{{url('admin/delete-category/' . $category->id)}}" class="btn btn-danger btn-xs">Delete</a>
                                                     </td>
                                                 </tr>
                                             @endforeach

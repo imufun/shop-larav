@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    //
+    //ADD Category
     public function addCategory(Request $request)
     {
         if ($request->isMethod('post')) {
@@ -28,7 +28,7 @@ class CategoryController extends Controller
         return view('admin.dashboard.category.init');
     }
 
-
+    // CATEGORY: view category
     public function manageCategory()
     {
         $categories = Categories::get();
@@ -38,7 +38,7 @@ class CategoryController extends Controller
         return view('admin.dashboard.category.manage-category.init')->with(compact('categories'));
     }
 
-
+    // CATEGORY: Edit function
     public function categoryEdit(Request $request, $id = null)
     {    
         //echo "test"; die();
@@ -57,7 +57,7 @@ class CategoryController extends Controller
         return view ('admin.dashboard.category.edit-category')->with(compact('categoriesEditId'));
     }
 
-
+    // Delete function CATEGORY
     public function categoryIdDelete($id = null)
     {
         if(!empty($id)){

@@ -45,13 +45,13 @@ class CategoryController extends Controller
 
         if($request->isMethod('post')){
             $data = $request->all();
-            print_r($data);die();
+          //  print_r($data);die();
             Categories::where(['id'=> $id])->update([
                     'category_name'=>$data['category_name'],
                     'Category_description'=>$data['Category_description'],
                     'category_slug'=>$data['category_slug']
                 ]);
-                return redirect('/admin/manamge-category')->with('flash_message_success', 'Category update successfully');
+                return redirect('/admin/manage-category')->with('flash_message_success', 'Category update successfully');
         }
         $categoriesEditId = Categories::where(['id'=>$id])->first();
         return view ('admin.dashboard.category.edit-category')->with(compact('categoriesEditId'));

@@ -6,9 +6,10 @@
     <div class="row">
         <div class="col-12 grid-margin">
             <div class="card">
+            @include('admin.common.flush-message')
                 <div class="card-body">
                     <h4 class="card-title mb-5">Edit Category</h4>
-                    <form class="form-sample" action="{{url('/admin/edit-category')}}" method="post" name="add_category" id="addCategory">
+                    <form class="form-sample" action="{{url('/admin/edit-category/' . $categoriesEditId->id)}}" method="post" name="add_category" id="addCategory">
                         {{csrf_field()}}
                  
 

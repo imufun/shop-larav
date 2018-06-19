@@ -4,7 +4,7 @@
         <div class="col-12 grid-margin">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-5">Add Category men</h4>
+                    <h4 class="card-title mb-5">Add Category</h4>
                     <form class="form-sample" action="{{url('/admin/add-category')}}" method="post" name="add_category" id="addCategory">
                         {{csrf_field()}}
 

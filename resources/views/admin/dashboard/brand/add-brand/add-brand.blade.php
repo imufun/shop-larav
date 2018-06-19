@@ -3,6 +3,7 @@
     <div class="row">
         <div class="col-12 grid-margin">
             <div class="card">
+            @include('admin.common.flush-message')
                 <div class="card-body">
                     <h4 class="card-title mb-5">Add Brand</h4>
                     <form class="form-sample" action="{{url('/admin/add-brand')}}" method="post" name="add_brand" id="addbrand">

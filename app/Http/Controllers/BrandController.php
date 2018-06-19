@@ -20,6 +20,6 @@ class BrandController extends Controller
             $brand->save();
         }
 
-        return view('admin.dashboard.brand.add-brand.init');
+        return view('admin.dashboard.brand.add-brand.init')->with('flash_message_success', 'Category update successfully');;
     }
 }

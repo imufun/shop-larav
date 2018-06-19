@@ -14,7 +14,7 @@ class CteateTblBrandTable extends Migration
     public function up()
     {
         //
-        Schema::create('tbl_brand', function (Blueprint $table) {
+        Schema::create('brands', function (Blueprint $table) {
             $table->increments('id');
             $table->string('brand_name');
             $table->string('brand_slug');

@@ -8,8 +8,7 @@
                     <form class="form-sample" action="{{url('/admin/add-brand')}}" method="post" name="add_brand" id="addbrand">
                         {{csrf_field()}}
 
-
-                    <input type="hidden" name="cat_id">
+  
 
                        <div class="row">
                             <div class="col-md-6">

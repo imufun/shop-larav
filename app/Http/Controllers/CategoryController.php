@@ -16,6 +16,8 @@ class CategoryController extends Controller
             //  print_r($data);die();
 
             $category = new Categories();
+            $categories->id = $data['id'];
+          //  print_r($categories->id);die;
             $category->parent_id = $data['parent_id'];
             $category->category_name = $data['category_name'];
             $category->category_description = $data['Category_description'];
@@ -25,8 +27,10 @@ class CategoryController extends Controller
             $category->save();
         }
 
-        $lavel =  Categories::where(['parent_id'=>1])->get();
-
+        $lavel =  Categories::where(['parent_id'=> 5])->get();
+ 
+        // echo "<pre>";
+        // print_r($lavel);die();
         return view('admin.dashboard.category.init')->with(compact('lavel'));
     }
 

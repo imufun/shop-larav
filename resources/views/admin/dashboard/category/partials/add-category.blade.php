@@ -4,10 +4,12 @@
         <div class="col-12 grid-margin">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-5">Add Category menu</h4>
+                    <h4 class="card-title mb-5">Add Category men</h4>
                     <form class="form-sample" action="{{url('/admin/add-category')}}" method="post" name="add_category" id="addCategory">
                         {{csrf_field()}}
-                   
+
+
+                    <input type="hidden" name="cat_id">
 
                        <div class="row">
                             <div class="col-md-6">
@@ -19,6 +21,8 @@
                                 </div>
                             </div>
                         </div>
+ 
+
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group row">
@@ -26,7 +30,7 @@
                                     <div class="col-sm-7">
                                         <label class="mr-sm-2" for="inlineFormCustomSelect">Select status</label>
                                         <select class="select2 form-control custom-select" style="width: 100%; height:36px;" id="inlineFormCustomSelect" name="parent_id">
-                                            <optgroup label="Alaskan/Hawaiian Time Zone">
+                                 <optgroup label="Alaskan/Hawaiian Time Zone">
                                                
                                             @foreach($lavel as $lavels)
                                                 <option value="{{$lavels->id}}">{{$lavels->category_name}}</option> 
@@ -38,6 +42,10 @@
                                 </div>
                             </div>
                         </div>
+
+
+
+
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group row">
@@ -48,16 +56,21 @@
                                 </div>
                             </div>
                         </div>
+
+
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group row">
                                     <label class="col-sm-5 col-form-label">Category Slug</label>
                                     <div class="col-sm-7">
-                                        <input type="text" class="form-control" name="category_slug">
+                                   <input type="text" class="form-control" name="category_slug">
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+
+                        
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group row">

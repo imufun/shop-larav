@@ -9,7 +9,7 @@
     <!-- Custom CSS -->
     <link href="{{asset('admin/assets/libs/flot/css/float-chart.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="{{asset('admin/dist/css/style.min.css')}}" rel="stylesheet">
+    <link href="{{asset('admin/dist/css/style.min.css')}}?=v2" rel="stylesheet">
     <link href="{{asset('admin/dist/css/select2.css')}}" rel="stylesheet"> 
     
 </head>

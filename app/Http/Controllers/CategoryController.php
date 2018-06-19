@@ -27,7 +27,7 @@ class CategoryController extends Controller
             $category->save();
         }
 
-        $lavel =  Categories::where(['parent_id'=> 5])->get();
+        $lavel =  Categories::where(['parent_id'=> 1])->get();
  
         // echo "<pre>";
         // print_r($lavel);die();

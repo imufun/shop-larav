@@ -36,6 +36,10 @@
                                             colspan="1" style="width: 238.633px;"
                                             aria-label="Position: activate to sort column ascending">Category Name
                                         </th>
+                                        <th width="30%" class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1"
+                                            colspan="1" style="width: 238.633px;"
+                                            aria-label="Position: activate to sort column ascending">Category lavel
+                                        </th>
                                         <th width="40%" class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1"
                                             colspan="1" style="width: 106.35px;"
                                             aria-label="Office: activate to sort column ascending">Category Descrition
@@ -67,6 +71,7 @@
                                                 <tr role="row" class="odd">
                                                     <td class="sorting_1">{{ $category->id }}</td>
                                                     <td>{{ $category->category_name }}</td>
+                                                    <td>{{ $category->parent_id }}</td>
                                                     <td>{{ $category->category_description }}</td>
                                                     <td>{{ $category->category_slug }}</td>
                                                     <td>{{ $category->category_status }}</td>

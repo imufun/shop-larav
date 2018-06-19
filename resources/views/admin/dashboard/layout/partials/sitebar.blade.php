@@ -12,7 +12,18 @@
                 </ul>
             </li>
 
-
+           <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Brand</span></a>
+                <ul aria-expanded="false" class="collapse  first-level">
+                    <li class="sidebar-item"><a href="{{url('/admin/add-brand')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Add Brand</span></a></li>
+                    <li class="sidebar-item"><a href="{{url('/admin/manage-brand')}}" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Manage Brand </span></a></li>
+                </ul>
+            </li>
+            <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Product</span></a>
+                <ul aria-expanded="false" class="collapse  first-level">
+                    <li class="sidebar-item"><a href="{{url('/admin/add-product')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Add product</span></a></li>
+                    <li class="sidebar-item"><a href="{{url('/admin/manage-product')}}" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Manage product </span></a></li>
+                </ul>
+            </li>
 
             <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a></li>
             <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="widgets.html" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Widgets</span></a></li>

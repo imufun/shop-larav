@@ -16,7 +16,7 @@ class CategoryController extends Controller
             //  print_r($data);die();
 
             $category = new Categories();
-            $categories->id = $data['id'];
+           // $categories->id = $data['id'];
           //  print_r($categories->id);die;
             $category->parent_id = $data['parent_id'];
             $category->category_name = $data['category_name'];

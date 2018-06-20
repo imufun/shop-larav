@@ -69,7 +69,7 @@
                                     {{--@if(is_array($categories) || is_object($categories))--}}
                                             @foreach($categories as $category)
                                                 <tr role="row" class="odd">
-                                                    <td class="sorting_1">{{ $category->id }}</td>
+                                                    <td class="sorting_1">{{ $category->category_id }}</td>
                                                     <td>{{ $category->category_name }}</td>
                                                     <td>{{ $category->parent_id }}</td>
                                                     <td>{{ $category->category_description }}</td>
@@ -77,8 +77,8 @@
                                                     <td>{{ $category->category_status }}</td>
                                                     <td>
                                                         <a href="" class="btn btn-success btn-xs">Active</a>
-                                                        <a href="{{url('admin/edit-category/'. $category->id )}}" class="btn btn-dark btn-xs">EDIT</a>
-                                                        <a href="{{url('admin/delete-category/' . $category->id)}}" class="btn btn-danger btn-xs">Delete</a>
+                                                        <a href="{{url('admin/edit-category/'. $category->category_id )}}" class="btn btn-dark btn-xs">EDIT</a>
+                                                        <a href="{{url('admin/delete-category/' . $category->category_id)}}" class="btn btn-danger btn-xs">Delete</a>
                                                     </td>
                                                 </tr>
                                             @endforeach

@@ -10,7 +10,7 @@
     <link href="{{asset('admin/assets/libs/flot/css/float-chart.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="{{asset('admin/dist/css/style.min.css')}}?=v2" rel="stylesheet">
-    <link href="{{asset('admin/dist/css/select2.css')}}" rel="stylesheet"> 
+    <link href="{{asset('admin/assets/libs/select2/dist/css/select2.min.css')}}" rel="stylesheet"> 
     
 </head>
 
@@ -31,6 +31,10 @@
 <!-- ============================================================== -->
 <script src="{{asset('admin/assets/libs/jquery/dist/jquery.min.js')}}"></script>
 <!-- Bootstrap tether Core JavaScript -->
+
+<script src=" {{asset('admin/assets/libs/select2/dist/js/select2.full.min.js')}}"></script>
+
+<script src="{{asset('admin/dist/js/custom.js')}}"></script>
 <script src=" {{asset('admin/assets/libs/popper.js/dist/umd/popper.min.js')}}"></script>
 <script src=" {{asset('admin/assets/libs/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -41,12 +45,10 @@
 <!--Menu sidebar -->
 <script src=" {{asset('admin/dist/js/sidebarmenu.js')}}"></script>
 <!--Custom JavaScript -->
-<script src="{{asset('admin/dist/js/custom.js')}}"></script>
 <!--This page JavaScript -->
 <!-- <script src=" admin/dist/js/pages/dashboards/dashboard1.js"></script> -->
 <!-- Charts js Files -->
 <script src=" {{asset('admin/assets/libs/flot/excanvas.js')}}"></script>
-<script src=" {{asset('admin/assets/libs/select2/dist/js/select2.js')}}"></script>
 
 <script src=" {{asset('admin/assets/libs/flot/jquery.flot.js')}}"></script>
 <script src=" {{asset('admin/assets/libs/flot/jquery.flot.pie.js')}}"></script>

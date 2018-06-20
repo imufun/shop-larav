@@ -18,16 +18,18 @@ class CategoryController extends Controller
             $category = new Categories();
            // $categories->id = $data['id'];
           //  print_r($categories->id);die;
-            $category->parent_id = $data['parent_id'];
-            $category->category_name = $data['category_name'];
+          
+           $category->category_name = $data['category_name'];
+            $category->parent_id  = $data['parent_id'];
             $category->category_description = $data['Category_description'];
             $category->category_slug = $data['category_slug'];
             $category->category_picture = $data['category_image'];
             $category->category_status = $data['category_status'];
             $category->save();
+            return redirect('/admin/manage-category')->with('flash_message_success', 'Category Add successfully');
         }
 
-        $lavel =  Categories::where(['parent_id'=> 1])->get();
+        $lavel =  Categories::where(['parent_id'=> 0])->get();
  
         // echo "<pre>";
         // print_r($lavel);die();
@@ -52,14 +54,14 @@ class CategoryController extends Controller
         if($request->isMethod('post')){
             $data = $request->all();
           //  print_r($data);die();
-            Categories::where(['id'=> $id])->update([
+            Categories::where(['category_id'=> $id])->update([
                     'category_name'=>$data['category_name'],
                     'Category_description'=>$data['Category_description'],
                     'category_slug'=>$data['category_slug']
                 ]);
                 return redirect('/admin/manage-category')->with('flash_message_success', 'Category update successfully');
         }
-        $categoriesEditId = Categories::where(['id'=>$id])->first();
+        $categoriesEditId = Categories::where(['category_id'=>$id])->first();
         return view ('admin.dashboard.category.edit-category')->with(compact('categoriesEditId'));
     }
 
@@ -67,7 +69,7 @@ class CategoryController extends Controller
     public function categoryIdDelete($id = null)
     {
         if(!empty($id)){
-            Categories::where(['id'=>$id])->delete();
+            Categories::where(['category_id'=>$id])->delete();
             return redirect()->back()->with('flash_message_success', 'Category delete successfully');
         }
     }

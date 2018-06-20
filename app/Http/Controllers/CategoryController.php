@@ -41,8 +41,8 @@ class CategoryController extends Controller
     {
         $categories = Categories::get();
         $categories = json_decode(json_encode($categories));
-       // echo "<pre>";
-        //print_r($categories);die;
+    //    echo "<pre>";
+    //     print_r($categories);die;
         return view('admin.dashboard.category.manage-category.init')->with(compact('categories'));
     }
 
@@ -62,7 +62,8 @@ class CategoryController extends Controller
                 return redirect('/admin/manage-category')->with('flash_message_success', 'Category update successfully');
         }
         $categoriesEditId = Categories::where(['category_id'=>$id])->first();
-        return view ('admin.dashboard.category.edit-category')->with(compact('categoriesEditId'));
+        $lavel =  Categories::where(['parent_id'=> 0])->get();
+        return view ('admin.dashboard.category.edit-category')->with(compact('categoriesEditId', 'lavel'));
     }
 
     // Delete function CATEGORY

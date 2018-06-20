@@ -34,7 +34,24 @@
                             </div>
                         </div>
                         
-                       
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-5 col-form-label"> Category lavel</label>
+                                    <div class="col-sm-7">
+                                        <label class="mr-sm-2" for="inlineFormCustomSelect">Select status</label>
+                                        <select name="parent_id" class="select2 form-control custom-select" style="width: 100%; height:36px;" id="inlineFormCustomSelect" >
+                                
+                                               <option value="0">Main Category</option>
+                                            @foreach($lavel as $lavels)
+                                                <option value="{{ $lavels->category_id }}" @if($lavels->category_id == $categoriesEditId->parent_id)  selected @endif>{{$lavels->category_name}}</option> 
+                                            @endforeach 
+ 
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 
                         <div class="row">

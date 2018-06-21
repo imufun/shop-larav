@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->string('product_code');
             $table->string('product_color');            
             $table->string('product_description');
-            $table->integer('product_quantity');            $table->increments('id');
+            $table->integer('product_quantity');  
             $table->float('product_price');
             $table->string('product_image');
             $table->remembertoken(); 

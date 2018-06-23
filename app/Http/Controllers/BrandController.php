@@ -22,4 +22,15 @@ class BrandController extends Controller
 
         return view('admin.dashboard.brand.add-brand.init')->with('flash_message_success', 'Category update successfully');;
     }
+
+    public function viewAllBrands (){
+
+        $brand = Brands::get();
+        $brand = json_decode(json_encode($brand));
+
+        return view('admin.dashboard.brand.manage-brand.init')->with(compact('brand'));
+    }
+
+//$categories = Categories::get();
+//$categories = json_decode(json_encode($categories));
 }

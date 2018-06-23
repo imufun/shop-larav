@@ -30,7 +30,6 @@
                                             <label class="mr-sm-2" for="inlineFormCustomSelect">Select status</label>
                                             <select name="category_id" class="select2 form-control custom-select" style="width: 100%; height:36px;" id="inlineFormCustomSelect" >
 
-
                                                 <?php echo $category_dropdown; ?>
 
                                             </select>
@@ -48,7 +47,21 @@
                                         <div class="col-sm-7">
                                             <label class="mr-sm-2" for="inlineFormCustomSelect">Select status</label>
                                             <select name="parent_id" class="select2 form-control custom-select" style="width: 100%; height:36px;" id="inlineFormCustomSelect" >
- 
+
+
+                                                <?php
+
+                                                $all_category = DB::table('brands')
+                                                    ->where('status',1)
+                                                    ->get();
+
+                                                foreach ($all_category as $cat_brand) {
+                                                    ?>
+
+                                                    <option value="{{$cat_brand->brand_id}}">{{$cat_brand->brand_name}}</option>
+
+                                               <?php } ?>
+
 
                                             </select>
                                         </div>

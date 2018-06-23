@@ -47,8 +47,7 @@
                                         <div class="col-sm-7">
                                             <label class="mr-sm-2" for="inlineFormCustomSelect">Select status</label>
                                             <select name="brand_id" class="select2 form-control custom-select" style="width: 100%; height:36px;" id="inlineFormCustomSelect" >
-
-
+                                                
                                                 <?php
 
                                                 $all_category = DB::table('brands')

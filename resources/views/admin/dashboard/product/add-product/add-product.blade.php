@@ -46,7 +46,7 @@
                                         <label class="col-sm-5 col-form-label">Brand</label>
                                         <div class="col-sm-7">
                                             <label class="mr-sm-2" for="inlineFormCustomSelect">Select status</label>
-                                            <select name="parent_id" class="select2 form-control custom-select" style="width: 100%; height:36px;" id="inlineFormCustomSelect" >
+                                            <select name="brand_id" class="select2 form-control custom-select" style="width: 100%; height:36px;" id="inlineFormCustomSelect" >
 
 
                                                 <?php
@@ -129,7 +129,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-5 col-form-label">Product Image</label>
                                         <div class="col-sm-7">
-                                            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="category_image" id="categoryImage">
+                                            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="product_image" id="categoryImage">
                                         </div>
                                     </div>
                                 </div>

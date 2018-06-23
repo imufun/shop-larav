@@ -28,9 +28,10 @@
                                         <label class="col-sm-5 col-form-label"> Category lavel</label>
                                         <div class="col-sm-7">
                                             <label class="mr-sm-2" for="inlineFormCustomSelect">Select status</label>
-                                            <select name="parent_id" class="select2 form-control custom-select" style="width: 100%; height:36px;" id="inlineFormCustomSelect" >
+                                            <select name="category_id" class="select2 form-control custom-select" style="width: 100%; height:36px;" id="inlineFormCustomSelect" >
 
-                                           
+
+                                                <?php echo $category_dropdown; ?>
 
                                             </select>
                                         </div>

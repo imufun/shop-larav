@@ -2,12 +2,13 @@
     <div class="container">
         <div class="row">
             <div class="col-12 grid-margin">
+
+                @include('admin.common.flush-message')
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title mb-5">Add Category</h4>
                         <form class="" action="{{url('/admin/add-product')}}" method="post">
                             {{csrf_field()}}
-                            @include('admin.common.flush-message')
 
 
                             <div class="row">
@@ -20,7 +21,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
 
                             <div class="row">
                                 <div class="col-md-6">
@@ -47,7 +48,7 @@
                                         <div class="col-sm-7">
                                             <label class="mr-sm-2" for="inlineFormCustomSelect">Select status</label>
                                             <select name="brand_id" class="select2 form-control custom-select" style="width: 100%; height:36px;" id="inlineFormCustomSelect" >
-                                                
+
                                                 <?php
 
                                                 $all_category = DB::table('brands')
@@ -73,7 +74,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-5 col-form-label">Product Code</label>
                                         <div class="col-sm-7">
-                                            <input type="text" class="form-control" name="product_code" id="productname">
+                                            <input type="text" class="form-control" name="product_code" id="productCsode">
                                         </div>
                                     </div>
                                 </div>
@@ -85,7 +86,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-5 col-form-label">Product Color</label>
                                         <div class="col-sm-7">
-                                            <input type="text" class="form-control" name="product_color" id="productname">
+                                            <input type="text" class="form-control" name="product_color" id="productColor">
                                         </div>
                                     </div>
                                 </div>
@@ -96,7 +97,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-5 col-form-label">Product Description</label>
                                         <div class="col-sm-7">
-                                            <input type="text" class="form-control" name="product_description" id="productname">
+                                            <textarea type="text" class="form-control" name="product_description" id="productDescription"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -108,7 +109,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-5 col-form-label">Product Quantity</label>
                                         <div class="col-sm-7">
-                                            <input type="text" class="form-control" name="product_quantity" id="productname">
+                                            <input type="text" class="form-control" name="product_quantity" id="productQuantity">
                                         </div>
                                     </div>
                                 </div>
@@ -118,7 +119,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-5 col-form-label">Product Price</label>
                                         <div class="col-sm-7">
-                                            <input type="text" class="form-control" name="product_price" id="productname">
+                                            <input type="text" class="form-control" name="product_price" id="productPrice">
                                         </div>
                                     </div>
                                 </div>
@@ -128,22 +129,21 @@
                                     <div class="form-group row">
                                         <label class="col-sm-5 col-form-label">Product Image</label>
                                         <div class="col-sm-7">
-                                            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="product_image" id="categoryImage">
+                                            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="product_image" id="productImage">
                                         </div>
                                     </div>
                                 </div>
                            </div>
                            <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="col-sm-5 col-form-label"> </label>
-                                    <div class="col-sm-7">
-                                        <button type="submit" class="btn btn-success  ">Save</button>
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-5 col-form-label"> </label>
+                                        <div class="col-sm-7">
+                                            <button type="submit" class="btn btn-success  ">Save</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-
+                           </div>
                         </form>
                     </div>
                 </div>

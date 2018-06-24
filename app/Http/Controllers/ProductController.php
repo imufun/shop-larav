@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Session;
 use App\Categories;
 use App\Products;
 use Illuminate\Http\Request;
@@ -14,17 +15,29 @@ class ProductController extends Controller
         if ($request->isMethod('post')) {
             $data = $request->all();
             $products = new Products();
+
+
+            if (empty($data['category_id'])) {
+                return redirect()->back()->with('flash_message_error', 'Under category missing!');
+            }
+
+
             $products->product_name = $data['product_name'];
             $products->category_id = $data['category_id'];
             $products->brand_id = $data['brand_id'];
             $products->product_code = $data['product_code'];
             $products->product_color = $data['product_color'];
-            $products->product_description = $data['product_description'];
+            if (!empty($data['product_description'])){
+                $products->product_description = $data['product_description'];
+            }else {
+                $products->product_description = '';
+            }
+
             $products->product_quantity = $data['product_quantity'];
             $products->product_price = $data['product_price'];
             $products->product_image = $data['product_image'];
             $products->save();
-
+            return redirect()->back()->with('flash_message_success', 'Product add successfully');
         }
 
 

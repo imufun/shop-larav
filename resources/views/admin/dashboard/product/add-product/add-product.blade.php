@@ -6,8 +6,8 @@
                 @include('admin.common.flush-message')
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title mb-5">Add Category</h4>
-                        <form class="" action="{{url('/admin/add-product')}}" method="post">
+                        <h4 class="card-title mb-5">Add Product</h4>
+                        <form class="" action="{{url('/admin/add-product')}}" method="post" enctype="multipart/form-data">
                             {{csrf_field()}}
 
 

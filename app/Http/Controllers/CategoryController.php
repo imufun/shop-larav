@@ -31,6 +31,10 @@ class CategoryController extends Controller
 
         $lavel = Categories::where(['parent_id' => 0])->get();
 
+//            echo "</pre>";
+//            print_r($category_dropdown);
+//            die();
+
         // echo "<pre>";
         // print_r($lavel);die();
         return view('admin.dashboard.category.init')->with(compact('lavel'));

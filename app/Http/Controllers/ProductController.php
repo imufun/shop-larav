@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Input;
 use Session;
+use Image;
 use App\Categories;
 use App\Products;
 use Illuminate\Http\Request;
@@ -12,6 +14,7 @@ class ProductController extends Controller
     //
     public function addProdcut(Request $request)
     {
+        // $base_url =
         if ($request->isMethod('post')) {
             $data = $request->all();
             $products = new Products();
@@ -27,15 +30,39 @@ class ProductController extends Controller
             $products->brand_id = $data['brand_id'];
             $products->product_code = $data['product_code'];
             $products->product_color = $data['product_color'];
-            if (!empty($data['product_description'])){
+            if (!empty($data['product_description'])) {
                 $products->product_description = $data['product_description'];
-            }else {
+            } else {
                 $products->product_description = '';
             }
 
             $products->product_quantity = $data['product_quantity'];
             $products->product_price = $data['product_price'];
-            $products->product_image = $data['product_image'];
+            //  $products->product_image = $data['product_image'];
+
+            $base_url = "localhost/";
+            //upload image
+            if ($request->hasFile('product_image')) {
+                $image_temp = Input::file('product_image');
+                if ($image_temp->isValid()) {
+                    $extension = $image_temp->getClientOriginalExtension();
+                    $file_name = rand(111, 999) . '.' . $extension;
+
+                    $large_image_path = 'uploads/images/large/' . $file_name;
+                    $medium_image_path = 'uploads/images/medium/' . $file_name;
+                    $small_image_path = 'uploads/images/small/' . $file_name;
+
+                    Image::make($image_temp)->resize(600, 600)->save($large_image_path);
+                    Image::make($image_temp)->resize(300, 300)->save($medium_image_path);
+                    Image::make($image_temp)->save($small_image_path);
+                    $products->product_image = $base_url . $file_name;
+//                    echo "</pre>";
+//                    print_r($test);
+                    die();
+                }
+            }
+
+
             $products->save();
             return redirect()->back()->with('flash_message_success', 'Product add successfully');
         }

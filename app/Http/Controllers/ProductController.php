@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     //
-    public function addProdcut(Request $request)
+    public function addProduct(Request $request)
     {
         // $base_url =
         if ($request->isMethod('post')) {
@@ -40,7 +40,7 @@ class ProductController extends Controller
             $products->product_price = $data['product_price'];
             //  $products->product_image = $data['product_image'];
 
-          //  $base_url = "localhost/";
+            //  $base_url = "localhost/";
             //upload image
             if ($request->hasFile('product_image')) {
                 $image_temp = Input::file('product_image');
@@ -55,7 +55,7 @@ class ProductController extends Controller
                     Image::make($image_temp)->resize(600, 600)->save($large_image_path);
                     Image::make($image_temp)->resize(300, 300)->save($medium_image_path);
                     Image::make($image_temp)->save($small_image_path);
-                    $products->product_image =   $file_name;
+                    $products->product_image = $file_name;
 //                    echo "</pre>";
 //                    print_r($test);
                     die();
@@ -73,6 +73,8 @@ class ProductController extends Controller
         foreach ($category as $cat) {
             $category_dropdown .= "<option value='" . $cat->category_id . "'>$cat->category_name</option>";
             $sub_category = Categories::where(['parent_id' => $cat->category_id])->get();
+//            echo "<pre>";
+//            print_r($sub_category);die();
             foreach ($sub_category as $sub_cat) {
                 $category_dropdown .= "<option value='" . $sub_cat->category_id . "'>&nbsp;--&nbsp;" . $sub_cat->category_name . "</option>";
             }
@@ -85,12 +87,31 @@ class ProductController extends Controller
 
     }
 
-    public function manageProdcut()
+    public function manageProduct()
     {
-        $product = Products::get();
-        $product = json_decode(json_encode($product));
-        return view('admin.dashboard.product.manage-product.init')->with(compact('product'));
+        $manageproduct = Products::get();
+        $manageproduct = json_decode(json_encode($manageproduct));
+        return view('admin.dashboard.product.manage-product.init')->with(compact('manageproduct'));
 
     }
+
+    public function editProduct(Request $request, $id = null)
+    {
+        $category = Categories::where(['parent_id' => 0])->get();
+        $category_dropdown = "<option selected disabled>Selected</option>";
+        foreach ($category as $cat) {
+            $category_dropdown .= "<option value='" . $cat->category_id . "'>$cat->category_name</option>";
+            $sub_category = Categories::where(['parent_id' => $cat->category_id])->get();
+            foreach ($sub_category as $sub_cat) {
+                $category_dropdown .= "<option value='" . $sub_cat->category_id . "'>&nbsp;--&nbsp;" . $sub_cat->category_name . "</option>";
+            }
+//            echo "</pre>";
+//            print_r($category_dropdown);
+//            die();
+        }
+        $editProductById = Products::where(['product_id' => $id])->first();
+        return view('admin.dashboard.product.edit-product')->with(compact('editProductById'));
+    }
+
 
 }

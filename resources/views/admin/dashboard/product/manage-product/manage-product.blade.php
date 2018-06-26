@@ -75,7 +75,7 @@
                                     {{--}--}}
 
                                     {{--@if(is_array($categories) || is_object($categories))--}}
-                                    @foreach($product as $products)
+                                    @foreach($manageproduct as $products)
                                         <tr role="row" class="odd">
                                             <td class="sorting_1">{{ $products->product_id }}</td>
                                             <td>{{ $products->product_name }}</td>
@@ -87,22 +87,14 @@
                                             <td><img src="{{asset('/uploads/images/small/' . $products->product_image) }}" alt="{{ $products->product_name }}" width="50px"></td>
                                             <td>
                                                 <a href="" class="btn btn-success btn-xs">Active</a>
-                                                <a href="{{url('admin/edit-Product/'. $products->product_id )}}" class="btn btn-dark btn-xs">EDIT</a>
-                                                <a href="{{url('admin/delete-Product/' . $products->product_id)}}" class="btn btn-danger btn-xs">Delete</a>
+                                                <a href="{{url('admin/edit-product/'. $products->product_id )}}" class="btn btn-dark btn-xs">EDIT</a>
+                                                <a href="{{url('admin/delete-product/' . $products->product_id)}}" class="btn btn-danger btn-xs">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach
                                     {{--@endif--}}
                                     </tbody>
-                                    <tfoot>
-                                    <tr>
-                                        <th rowspan="1" colspan="1">Name</th>
-                                        <th rowspan="1" colspan="1">Position</th>
-                                        <th rowspan="1" colspan="1">Office</th>
-                                        <th rowspan="1" colspan="1">Age</th>
-                                        <th rowspan="1" colspan="1">Start date</th>
-                                    </tr>
-                                    </tfoot>
+
                                 </table>
                             </div>
                         </div>

@@ -40,7 +40,7 @@ class ProductController extends Controller
             $products->product_price = $data['product_price'];
             //  $products->product_image = $data['product_image'];
 
-            $base_url = "localhost/";
+          //  $base_url = "localhost/";
             //upload image
             if ($request->hasFile('product_image')) {
                 $image_temp = Input::file('product_image');
@@ -48,14 +48,14 @@ class ProductController extends Controller
                     $extension = $image_temp->getClientOriginalExtension();
                     $file_name = rand(111, 999) . '.' . $extension;
 
-                    $large_image_path = 'uploads/images/large/' . $file_name;
-                    $medium_image_path = 'uploads/images/medium/' . $file_name;
-                    $small_image_path = 'uploads/images/small/' . $file_name;
+                    $large_image_path = 'localhost/uploads/images/large/' . $file_name;
+                    $medium_image_path = 'localhost/uploads/images/medium/' . $file_name;
+                    $small_image_path = 'localhost/uploads/images/small/' . $file_name;
 
                     Image::make($image_temp)->resize(600, 600)->save($large_image_path);
                     Image::make($image_temp)->resize(300, 300)->save($medium_image_path);
                     Image::make($image_temp)->save($small_image_path);
-                    $products->product_image = $base_url . $file_name;
+                    $products->product_image =   $file_name;
 //                    echo "</pre>";
 //                    print_r($test);
                     die();
@@ -84,4 +84,13 @@ class ProductController extends Controller
         return view('admin.dashboard.product.add-product.init')->with(compact('category_dropdown'));
 
     }
+
+    public function manageProdcut()
+    {
+        $product = Products::get();
+        $product = json_decode(json_encode($product));
+        return view('admin.dashboard.product.manage-product.init')->with(compact('product'));
+
+    }
+
 }

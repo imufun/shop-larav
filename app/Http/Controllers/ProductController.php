@@ -97,20 +97,54 @@ class ProductController extends Controller
 
     public function editProduct(Request $request, $id = null)
     {
+
+        if ($request->isMethod('post')) {
+
+            $data = $request->all();
+//              echo "<pre>";
+//            print_r($data);die();
+            Products::where(['product_id' => $id])->update([
+                'product_name' => $data['product_name'],
+                'category_id' => $data['category_id'],
+                'brand_id' => $data['brand_id'],
+                'product_code' => $data['product_code'],
+                'product_color' => $data['product_color'],
+                'product_description' => $data['product_description'],
+                'product_quantity' => $data['product_quantity'],
+                'product_price' => $data['product_price']
+                // 'product_name' => $data['product_image']
+            ]);
+
+            return redirect('/admin/manage-product')->with('flash_message_success', 'Product update successfully');
+
+        }
+
+        $editProductById = Products::where(['product_id' => $id])->first();
+
         $category = Categories::where(['parent_id' => 0])->get();
-        $category_dropdown = "<option selected disabled>Selected</option>";
+        $category_dropdown = "<option value='' selected disabled>Selected</option>";
         foreach ($category as $cat) {
-            $category_dropdown .= "<option value='" . $cat->category_id . "'>$cat->category_name</option>";
+            if ($cat->parent_id == $editProductById->category_id) {
+                $selected = "Selected";
+            } else {
+                $selected = '';
+            }
+
+            $category_dropdown .= "<option value='" . $cat->category_id . "' " . $selected . ">$cat->category_name</option>";
             $sub_category = Categories::where(['parent_id' => $cat->category_id])->get();
             foreach ($sub_category as $sub_cat) {
-                $category_dropdown .= "<option value='" . $sub_cat->category_id . "'>&nbsp;--&nbsp;" . $sub_cat->category_name . "</option>";
+                if ($sub_cat->parent_id == $editProductById->category_id) {
+                    $selected = "Selected";
+                } else {
+                    $selected = '';
+                }
+                $category_dropdown .= "<option value='" . $sub_cat->category_id . "' " . $selected . ">&nbsp;--&nbsp;" . $sub_cat->category_name . "</option>";
             }
 //            echo "</pre>";
 //            print_r($category_dropdown);
 //            die();
         }
-        $editProductById = Products::where(['product_id' => $id])->first();
-        return view('admin.dashboard.product.edit-product')->with(compact('editProductById'));
+        return view('admin.dashboard.product.edit-product')->with(compact('editProductById', 'category_dropdown'));
     }
 
 

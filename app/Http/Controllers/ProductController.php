@@ -20,8 +20,15 @@ class ProductController extends Controller
             $products = new Products();
 
 
-            if (empty($data['category_id'])) {
-                return redirect()->back()->with('flash_message_error', 'Under category missing!');
+            if (empty($data['product_name']) ||
+                empty($data['category_id']) ||
+                empty($data['brand_id']) ||
+                empty($data['product_code']) ||
+                empty($data['product_color']) ||
+                empty($data['product_quantity']) ||
+                empty($data['product_quantity']) ||
+                empty($data['product_price'])) {
+                return redirect()->back()->with('flash_message_error', 'Missing  Field!');
             }
 
 
@@ -210,5 +217,18 @@ class ProductController extends Controller
     {
         Products::where(['product_id' => $id])->delete();
         return redirect()->back()->with('flash_message_success', 'Product  Delete successfully');
+    }
+
+    // Add Attributes
+    public function addAttributes(Request $request, $id = null)
+    {
+       // $ProductsAttributes = new Products();
+        $productsAttributes = Products::where(['product_id' => $id])->first();
+
+//         echo "<pre>";
+//         print_r($ProductsAttributes);
+//         die();
+        return view('admin.dashboard.product.add-attribute.init')->with(compact('productsAttributes'));
+
     }
 }

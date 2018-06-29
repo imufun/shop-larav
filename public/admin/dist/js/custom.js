@@ -151,6 +151,33 @@ $(function () {
         });
     });
 
+
+    $(function () {
+
+        var maxItem = 10;
+        var addButton = $('.add-attribute');
+        var addAttributeWraper = $('.wrapper-attritube');
+        var initAttributeFiled = ' <div class="form-row">' +
+            '<div class="form-group col-md-3">\n' +
+            '<input type="text" name="sku[]" class="form-control" id="Sku" placeholder="Sku">\n' +
+            '</div>' +
+            ' <div class="form-group col-md-3">\n' +
+            '<input type="text" name="size[]" class="form-control" id="Size" placeholder="Size">\n' +
+            ' </div>' +
+            '<div class="form-group col-md-3">\n' +
+            '<input type="text" name="stock[]" class="form-control" id="Stock" placeholder="Stock">\n' +
+            '</div>' +
+            ' <div class="form-group col-md-3">\n' +
+            ' <input type="text" name="stock[]" class="form-control" id="Stock" placeholder="Stock">\n' +
+            ' </div>' +
+            '</div>'
+
+
+        $(addButton).on('click', function () {
+            //  alert('hahaha');
+            $(addAttributeWraper).append(initAttributeFiled);
+        })
+    });
     // $(function () {
     //
     //     $('#submitPassword').submit(function (e) {

@@ -134,8 +134,16 @@
                                         <label class="col-sm-5 col-form-label">Product Image</label>
                                         <div class="col-sm-7">
                                             <input type="file" class="form-control-file" id="exampleFormControlFile1" name="product_image" id="productImage" >
+                                            <input type="hidden" name="current_image" value="{{$editProductById->product_image}}">
+                                            @if(!empty($editProductById->product_image))
+                                                <img  src="{{asset('uploads/images/small/' . $editProductById->product_image)}}" alt="" width="50px">|
+                                                <a href="{{url('admin/delete-product-image/' . $editProductById->product_id)}}">Delete</a>
+                                            @endif
                                         </div>
                                     </div>
+                                </div>
+                                <div class="col-md-6">
+
                                 </div>
                            </div>
                            <div class="row">

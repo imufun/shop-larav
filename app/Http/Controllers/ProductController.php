@@ -48,9 +48,9 @@ class ProductController extends Controller
                     $extension = $image_temp->getClientOriginalExtension();
                     $file_name = rand(111, 999) . '.' . $extension;
 
-                    $large_image_path = 'localhost/uploads/images/large/' . $file_name;
-                    $medium_image_path = 'localhost/uploads/images/medium/' . $file_name;
-                    $small_image_path = 'localhost/uploads/images/small/' . $file_name;
+                    $large_image_path = 'uploads/images/large/' . $file_name;
+                    $medium_image_path = 'uploads/images/medium/' . $file_name;
+                    $small_image_path = 'uploads/images/small/' . $file_name;
 
                     Image::make($image_temp)->resize(600, 600)->save($large_image_path);
                     Image::make($image_temp)->resize(300, 300)->save($medium_image_path);
@@ -58,13 +58,13 @@ class ProductController extends Controller
                     $products->product_image = $file_name;
 //                    echo "</pre>";
 //                    print_r($test);
-                    die();
+                    //  die();
                 }
             }
 
 
             $products->save();
-            return redirect()->back()->with('flash_message_success', 'Product add successfully');
+            return redirect('/admin/manage-product')->with('flash_message_success', 'Product add successfully');
         }
 
 
@@ -95,12 +95,51 @@ class ProductController extends Controller
 
     }
 
+    /*---------
+     * Product Eidt
+     * @param: id
+     * return product id
+     * --------*/
+
+
     public function editProduct(Request $request, $id = null)
     {
 
         if ($request->isMethod('post')) {
 
             $data = $request->all();
+
+            //upload image
+            if ($request->hasFile('product_image')) {
+                $image_temp = Input::file('product_image');
+                if ($image_temp->isValid()) {
+                    $extension = $image_temp->getClientOriginalExtension();
+                    $file_name = rand(111, 999) . '.' . $extension;
+
+                    $large_image_path = 'uploads/images/large/' . $file_name;
+                    $medium_image_path = 'uploads/images/medium/' . $file_name;
+                    $small_image_path = 'uploads/images/small/' . $file_name;
+
+                    Image::make($image_temp)->resize(600, 600)->save($large_image_path);
+                    Image::make($image_temp)->resize(300, 300)->save($medium_image_path);
+                    Image::make($image_temp)->save($small_image_path);
+
+//                    echo "</pre>";
+//                    print_r($test);
+                    //   die();
+                }
+            } else if (!empty($file_name = $data['current_image'])) {
+                $file_name = $data['current_image'];
+                //  print_r($file_name);die();
+            } else {
+                $file_name = '';
+            }
+            if (empty($data['product_description'])) {
+                $data['product_description'] = '';
+            }
+            if (empty($data['category_id'])) {
+                return redirect()->back()->with('flash_message_error', 'Under category missing!');
+            }
 //              echo "<pre>";
 //            print_r($data);die();
             Products::where(['product_id' => $id])->update([
@@ -111,8 +150,8 @@ class ProductController extends Controller
                 'product_color' => $data['product_color'],
                 'product_description' => $data['product_description'],
                 'product_quantity' => $data['product_quantity'],
-                'product_price' => $data['product_price']
-                // 'product_name' => $data['product_image']
+                'product_price' => $data['product_price'],
+                'product_image' => $file_name
             ]);
 
             return redirect('/admin/manage-product')->with('flash_message_success', 'Product update successfully');
@@ -148,4 +187,28 @@ class ProductController extends Controller
     }
 
 
+    /*---------
+    * Product delete
+    * @param: id
+    * return product id
+    * --------*/
+
+    public function deleteProductImage($id = null)
+    {
+        Products::where(['product_id' => $id])->update(['product_image' => '']);
+//        echo "<pre>";
+//        print_r($f);
+//        die();
+        return redirect()->back()->with('flash_message_success', 'Product Image Delete successfully');
+    }
+
+
+    /*
+     * Delete product
+     * */
+    public function deleteProduct($id = null)
+    {
+        Products::where(['product_id' => $id])->delete();
+        return redirect()->back()->with('flash_message_success', 'Product  Delete successfully');
+    }
 }

@@ -78,9 +78,30 @@
                                                     <td>
                                                         <a href="" class="btn btn-success btn-xs">Active</a>
                                                         <a href="{{url('admin/edit-category/'. $category->category_id )}}" class="btn btn-dark btn-xs">EDIT</a>
-                                                        <a href="{{url('admin/delete-category/' . $category->category_id)}}" class="btn btn-danger btn-xs">Delete</a>
+                                                        {{--<a href="{{url('admin/delete-category/' . $category->category_id)}}" class="btn btn-danger btn-xs">Delete</a>--}}
+                                                        <button data-toggle="modal" data-target="#{{$category->category_id}}" class="btn btn-danger btn-xs">Delete</button>
                                                     </td>
                                                 </tr>
+
+                                                <div class="modal fade" id="{{$category->category_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">{{$category->category_name}}</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                Are you want to delete this Category?
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                <a href="{{url('admin/delete-product/' . $category->category_id)}}" class="btn btn-primary">Delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             @endforeach
                                         {{--@endif--}}
                                     </tbody>

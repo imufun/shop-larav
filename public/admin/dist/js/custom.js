@@ -167,10 +167,10 @@ $(function () {
             '<input type="text" name="size[]" class="form-control" id="Size" placeholder="Size">\n' +
             ' </div>' +
             '<div class="form-group col-md-2">\n' +
-            '<input type="text" name="stock[]" class="form-control" id="Stock" placeholder="Stock">\n' +
+            '<input type="text" name="price[]" class="form-control" id="price" placeholder="Price">\n' +
             '</div>' +
             ' <div class="form-group col-md-2">\n' +
-            ' <input type="text" name="stock[]" class="form-control" id="Stock" placeholder="Stock">\n' +
+            ' <input type="text" name="stock[]" class="form-control" id="stock" placeholder="Stock">\n' +
             ' </div>' +
             ' <div class="form-group col-md-2">\n' +
             '<button class="btn btn-primary removeAttribute" type="button">Delete</button>' +

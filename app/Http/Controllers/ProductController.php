@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Input;
 use Session;
 use Image;
 use App\Categories;
+use App\ProductsAttributes;
 use App\Products;
 use Illuminate\Http\Request;
 
@@ -222,19 +223,23 @@ class ProductController extends Controller
     // Add Attributes
     public function addAttributes(Request $request, $id = null)
     {
-        // $ProductsAttributes = new Products();
-        $productsAttributes = Products::where(['product_id' => $id])->first();
+        $productsAttributesAdd = Products::with('attributes')->where(['product_id' => $id])->first();
         if ($request->isMethod('post')) {
             $data = $request->all();
-            echo "<pre>";
-            print_r($data);
-            die();
-        }
 
-//         echo "<pre>";
-//         print_r($ProductsAttributes);
-//         die();
-        return view('admin.dashboard.product.add-attribute.init')->with(compact('productsAttributes'));
+            foreach ($data['sku'] as $key => $val) {
+                if (!empty($val)) {
+                    $attributes = new ProductsAttributes();
+                    $attributes->product_id = $id;
+                    $attributes->sku = $val;
+                    $attributes->size = $data['size'][$key];
+                    $attributes->price = $data['price'][$key];
+                    $attributes->stock = $data['stock'][$key];
+                    $attributes->save();
+                }
+            }
+        }
+        return view('admin.dashboard.product.add-attribute.init')->with(compact('productsAttributesAdd'));
 
     }
 }

@@ -222,8 +222,14 @@ class ProductController extends Controller
     // Add Attributes
     public function addAttributes(Request $request, $id = null)
     {
-       // $ProductsAttributes = new Products();
+        // $ProductsAttributes = new Products();
         $productsAttributes = Products::where(['product_id' => $id])->first();
+        if ($request->isMethod('post')) {
+            $data = $request->all();
+            echo "<pre>";
+            print_r($data);
+            die();
+        }
 
 //         echo "<pre>";
 //         print_r($ProductsAttributes);

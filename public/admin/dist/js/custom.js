@@ -154,9 +154,11 @@ $(function () {
 
     $(function () {
 
+        var arrayItem = [];
         var maxItem = 10;
+        var item = 1;
         var addButton = $('.add-attribute');
-        var addAttributeWraper = $('.wrapper-attritube');
+        var addAttributeWraper = $('.wrapper-attribute');
         var initAttributeFiled = ' <div class="form-row">' +
             '<div class="form-group col-md-3">\n' +
             '<input type="text" name="sku[]" class="form-control" id="Sku" placeholder="Sku">\n' +
@@ -164,40 +166,46 @@ $(function () {
             ' <div class="form-group col-md-3">\n' +
             '<input type="text" name="size[]" class="form-control" id="Size" placeholder="Size">\n' +
             ' </div>' +
-            '<div class="form-group col-md-3">\n' +
+            '<div class="form-group col-md-2">\n' +
             '<input type="text" name="stock[]" class="form-control" id="Stock" placeholder="Stock">\n' +
             '</div>' +
-            ' <div class="form-group col-md-3">\n' +
+            ' <div class="form-group col-md-2">\n' +
             ' <input type="text" name="stock[]" class="form-control" id="Stock" placeholder="Stock">\n' +
             ' </div>' +
-            '</div>'
+            ' <div class="form-group col-md-2">\n' +
+            '<button class="btn btn-primary removeAttribute" type="button">Delete</button>' +
+            ' </div>'
 
-
+        '</div>';
+ 
         $(addButton).on('click', function () {
-            //  alert('hahaha');
-            $(addAttributeWraper).append(initAttributeFiled);
+            if (item < maxItem) {
+                $(addAttributeWraper).append(initAttributeFiled);
+                maxItem++;
+            }
+        });
+
+        /*
+        * Item remove function
+        * */
+        function deleteItem(e, itemDelete) {
+            e.preventDefault();
+            $(itemDelete).parent().parent().fadeOut('slow', function () {
+                $(itemDelete).parent().remove();
+            })
+        }
+
+        /*
+        * Item remove : on click
+        *
+        * */
+
+        $(addAttributeWraper).on('click', '.removeAttribute', function (e) {
+            var itemDelete = this;
+            deleteItem(e, itemDelete);
         })
     });
-    // $(function () {
-    //
-    //     $('#submitPassword').submit(function (e) {
-    //         e.preventDefault();
-    //         alert('hahhahaha');
-    //
-    //
-    //         var newPassword = $("#newPassword").val();
-    //         var confirmPassword = $("#confirmPassword").val();
-    //
-    //         console.log(newPassword, confirmPassword);
-    //         if (newPassword != confirmPassword) {
-    //             alert('Password not match');
-    //             console.log(newPassword, confirmPassword);
-    //         }else{
-    //             confirmPassword.text('');
-    //         }
-    //     })
-    //
-    // });
+
 
     $(function () {
 

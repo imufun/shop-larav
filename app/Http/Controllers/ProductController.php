@@ -224,15 +224,15 @@ class ProductController extends Controller
     public function addAttributes(Request $request, $id = null)
     {
          $productsAttributesAdd = Products::with('attributes')->where(['product_id' => $id])->first();
-      //$productsAttributesAdd = json_decode(json_encode($productsAttributesAdd));
+         $productsAttributesAdd = json_decode(json_encode($productsAttributesAdd));
         //echo "<pre>";
       //  print_r($productsAttributesAdd);
       //  die;
         if ($request->isMethod('post')) {
             $data = $request->all();
-         //   echo "<pre>";
-          ////  print_r($data);
-          //  die();
+            echo "<pre>";
+            print_r($data);
+            die();
             foreach ($data['sku'] as $key => $val) {
                 if (!empty($val)) {
                     $attributes = new ProductsAttributes();

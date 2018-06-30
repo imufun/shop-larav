@@ -223,10 +223,16 @@ class ProductController extends Controller
     // Add Attributes
     public function addAttributes(Request $request, $id = null)
     {
-        $productsAttributesAdd = Products::with('attributes')->where(['product_id' => $id])->first();
+         $productsAttributesAdd = Products::with('attributes')->where(['product_id' => $id])->first();
+      //$productsAttributesAdd = json_decode(json_encode($productsAttributesAdd));
+        //echo "<pre>";
+      //  print_r($productsAttributesAdd);
+      //  die;
         if ($request->isMethod('post')) {
             $data = $request->all();
-
+         //   echo "<pre>";
+          ////  print_r($data);
+          //  die();
             foreach ($data['sku'] as $key => $val) {
                 if (!empty($val)) {
                     $attributes = new ProductsAttributes();
@@ -238,6 +244,7 @@ class ProductController extends Controller
                     $attributes->save();
                 }
             }
+            return redirect('/admin/add-attributes/' . $id)->with('flash_message_success', 'Product  Attribute successfully');
         }
         return view('admin.dashboard.product.add-attribute.init')->with(compact('productsAttributesAdd'));
 

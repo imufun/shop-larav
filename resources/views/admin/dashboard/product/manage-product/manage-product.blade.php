@@ -86,9 +86,10 @@
                                             <td>{{ $products->product_price }}</td>
                                             <td><img src="{{asset('/uploads/images/small/' . $products->product_image) }}" alt="{{ $products->product_name }}" width="50px"></td>
                                             <td>
-                                                <a href="" class="btn btn-success btn-xs">Active</a>
-                                                <a href="{{url('admin/edit-product/'. $products->product_id )}}" class="btn btn-dark btn-xs">EDIT</a>
-                                                <button data-toggle="modal" data-target="#{{$products->product_id}}" class="btn btn-danger btn-xs">Delete</button>
+                                                <a href="" class="btn btn-success btn-xs d-block mb-1">Active</a>
+                                                <a href="{{url('admin/edit-product/'. $products->product_id )}}" class="btn btn-dark btn-xs d-block mb-1">EDIT</a>
+                                                <a href="{{url('/admin/add-attributes/'. $products->product_id )}}" class="btn btn-cyan btn-xs d-block mb-1">Add Attributes</a>
+                                                <button data-toggle="modal" data-target="#{{$products->product_id}}" class="btn btn-danger btn-xs d-block mb-1">Delete</button>
                                             </td>
                                         </tr>
                                         <div class="modal fade" id="{{$products->product_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
